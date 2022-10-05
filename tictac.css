@@ -3,26 +3,25 @@
 	margin: 0;
 	padding: 0;
 	font-family: Arial Rounded MT;
-	box-sizing: border-box;
 }
+
 body{
-	display: column;
+	display: flex;
 	min-height: 100vh;
 	justify-content: center;
 	overflow: hidden;
 	background: linear-gradient(to right,#ef395b,#f14d45,#340bae);
-	padding: 0;
-    margin: 0;
-   	padding:  80px 50px;
 }
+
+
+
 .main{
-	position: column;
-	width: 100%;
-	height: 100%;
+	position: relative;
+	width: 300px;
+	height: 300px;
 	text-align: center;
 }
 .header{
-	
 	border: solid;
 	border-radius: 15px;
 	box-shadow: 0px 20px 30px 10px rgba(0, 0, 0, 0.5);
@@ -30,15 +29,15 @@ body{
 	border-color: white;
 }
 table{
-	width: 20%;
+	width: 100%;
 	height: 100%;
-	margin-top: 160px;
-	margin-left: 40%;
+	margin-top: 190px;
 	border-collapse: collapse;
 	box-shadow: 0px 20px 30px 10px rgba(0, 0, 0, 0.5);
 	background-color: white;
 	border-radius: 10%;
-}	
+}
+
 td{
 	width: 100px;
 	height: 100px;
@@ -54,6 +53,8 @@ td{
 	color: white;
 	margin: 7px;	
 }
+
+
 i{
 	font-size: 2.8em;
 	transition:  .5s;
@@ -80,13 +81,11 @@ i{
 	left: 530px;
 	height: 20%;
 	width: 300px;
-	margin-top: 26%;
-	margin-left: -11%;
 	background-color: skyblue;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-content: center;
-	display: inline-flex;
+	display: flex;
 	border-radius: 10px;
 	box-shadow: 10px 40px 80px -40px #000 ;
 	transition: 1s;
@@ -104,7 +103,6 @@ i{
 	font-size: 16px;
 	display: flex;
 	justify-content: center;
-	text-align: center;
 	color: #fff;
 	background-color: indigo;
 	font-weight: 800;
@@ -118,7 +116,6 @@ i{
 	display: inline-flex;
 	text-decoration-color: white;
 	margin: 10px;
-
 }
 span:first-child{
 	position: absolute;
@@ -132,12 +129,13 @@ span:last-child{
 }
 span:last-child, span:first-child{
 	width: 200px;
-	height: 80px;
+	height: 90px;
 	padding: 10px;
 	background-color: red;
 	align-items: center;
-	font-size: 14px;
+	font-size: 20px;
 	border-radius: 20px;
+	box-shadow: 10px 10px 10px -10px rgb(167, 167, 167);
 }
 span h3{
 	color: #fff
