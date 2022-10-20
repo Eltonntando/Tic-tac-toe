@@ -10,7 +10,7 @@ document.querySelectorAll("td").forEach((item) => {
 
             if (turn == "playesOne") {
                 turn = "playesTwo"
-                this.innerHTML = `<i class="fa-solid fa-check" ></i>`;
+                this.innerHTML = `<i class="fa-solid fa-x"></i>`;
                 playerOnePoints.push(this.getAttribute("id"));
             }
             else {
