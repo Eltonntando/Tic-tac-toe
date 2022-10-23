@@ -18,11 +18,8 @@ body{
  	 text-align: center;
  	 margin-top: 1000px;
  	 margin-left: -530px;
- 	 background-color: red;
  	 color: white;
- 	 border-radius: 10px;
- 	 border: solid;
-	 border-color: white;
+ 	 text-weight: bold;
  }
 
  .last-footer {
