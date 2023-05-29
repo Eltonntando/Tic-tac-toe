@@ -1,264 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
-*{
-	margin: 0;
-	padding: 0;
-	font-family: Arial Rounded MT;
-	border-radius: 100px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #8c52ff;
+    background-image: url(Images/Tictactoe/jason.png);
+    background-size: cover;
+    background-attachment: fixed;
 }
+section {
+    text-align: center;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+    background-color: #fff;
+    margin-top: 75px;
+    box-shadow: 0px 10px 36px 16px rgba(0,0,0,0.1);
+}
+.game--title {
+    padding-top: -8px;
+}
+.game--container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 150px;
+    margin: 120px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 12px;
+}
+.cell {
+    font-family: "Poppins", sans-serif;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 0 1px #333333;
+    border: 1px solid #333333;
+    cursor: pointer;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    text-align: center;
+
+}
+button {
+    margin-bottom: 20px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #8c52ff;
+    cursor: pointer;
+}
+button:hover {
+    transition: 0.25s;
+    background-color: #c1a2fe;
+}
+
 
 
 
 img {
-	height: 125px;
-	width: 150px;
+    height: 70px;
+    width: 75px;
 }
 
 
 .last-footer {
-	align-items: center;
+    align-items: center;
 }
 
 
 .symbol {
-	align-content: center;
+    align-content: center;
 }
 
 h1 {
      font-family: fantasy;
      font-stretch: expanded;
      font-weight: 90;
+     color: black;
 }
 
 h3 {
      font-family: fantasy;
      font-stretch: expanded;
      font-weight: 70;
+     color: black;
 }
 
-body{
-	display: flex;
-	min-height: 100vh;
-	justify-content: center;
-	overflow: hidden;
-	background-image: url(Images/Tictactoe/jason.png);
-	background-size: cover;
-	background-attachment: fixed;
-}
- footer{
- 	 position: relative;
- 	 display: flex;
- 	 text-align: center;
- 	 margin-top: 1000px;
- 	 margin-left: -480px;
- 	 color: black;
- 	 text-weight: bold;
- }
-
- .last-footer {
- 	padding-bottom: -45px;
- }
-
-
-.main{
-	position: relative;
-	width: 520px;
-	height: 520px;
-	text-align: center;
-	border: 4px solid white;
-	border-radius: 30%;
-	background-color: none;
+p {
+    font-size: 9px;
 }
 
-.header{
-
-	list-style: none;
-	margin-top: 70px;
-
+ul {
+     list-style: none;
+     text-decoration: none;
+     padding-left: 0;
+     overflow: hidden;
+     position: relative;
+     left: -4px;
+     top: 4px;
+     margin-bottom: 1.5em;
+     font-size: 9px;
+     color: skyblue;
 }
 
-
-.header.ul{
-	 list-style: none;
-	 text-decoration: none;
+.buttons {
+    border-radius: 8px;
+    border: 1px solid #8c52ff;
+    background-color: white;
+    color: #8c52ff;
+    font-size: 12px;
 }
-table{
-	width: 100%;
-	height: 100%;
-	margin-top: 40px;
-	background-color: none;
-	border-radius: 10%;
-	border: none;
-}
-
-
-#title {
-    height: 100px;
-    width: 300px;
-}
-
-tr{
-	border-radius: 50px;
-	width: 100px;
-	height: 100px;
-}
-td{
-	width: 80px;
-	height: 80px;
-	background-color: white;
-	border: 4px solid white;
-	border-radius: 30%;
-}
-.fa-solid{
-	color: red;
-	margin: 7px;
-}
-.fa-circle{
-	color: green;
-	margin: 7px;	
-}
-
-
-i{
-	font-size: 2.8em;
-	transition:  .5s;
-	transform: scale(1);
-	animation: anima .7s forwards;
-}
-@keyframes anima {
-	0%{
-		transform: scale(0);
-	}
-	50%{
-		transform: scale(1.2);
-	}
-	100%{
-		transform: scale(1);
-	}
-}
-#winner{
-	color: #fff
-}
-.pop-up{
-	position: absolute;
-	bottom: 5%;
-	left: 700px;
-	height: 20%;
-	width: 300px;
-	background-color: green;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-content: center;
-	display: flex;
-	border-radius: 10px;
-	box-shadow: 10px 40px 80px -40px #000 ;
-	transition: 1s;
-	transform: translateY(500px);
-	animation: popUp_Ani .5s ;
-}
-.btn{
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	margin: 10px;
-}
-.play-again-btn{
-	width: 100px;
-	font-size: 16px;
-	display: flex;
-	justify-content: center;
-	color: white;
-	background-color: red;
-	font-weight: 800;
-	padding: 10px;
-	border-radius: 5px;
-	cursor: pointer;
-	box-shadow: 10px 10px 10px -10px rgb(167, 167, 167);
-}
-.symbol{
-	justify-content: center;
-	display: inline-flex;
-	text-decoration-color: black;
-	margin: 5px;
-}
-span:first-child{
-	position: absolute;
-	top: 200px;
-	left: -8%;
-	margin-top: 75px;
-}
-span:last-child{
-	position: absolute;
-	top: 200px;
-	right: -8%;
-	margin-top: 75px;
-}
-span:last-child, span:first-child{
-	width: 200px;
-	height: 90px;
-	padding: 10px;
-	align-items: center;
-	font-size: 15px;
-	border-radius: 20px;
-}
-span h3{
-	color: white;
-}
-
-
-
-.widget.contact ul {
-		list-style: none;
-		padding-left: 0;
-		overflow: hidden;
-		position: relative;
-		left: -4px;
-		top: 4px;
-		margin-bottom: 1.5em;
-	}
-
-		.widget.contact ul li {
-			display: inline-block;
-			margin-right: 0.25em;
-			padding-left: 0;
-		}
-
-			.widget.contact ul li a {
-				-moz-transition: background-color .25s ease-in-out;
-				-webkit-transition: background-color .25s ease-in-out;
-				-ms-transition: background-color .25s ease-in-out;
-				transition: background-color .25s ease-in-out;
-				display: inline-flex;
-				width: 2.5em;
-				height: 2.5em;
-				text-align: center;
-				line-height: 2.5em;
-				border-radius: 0.35em;
-				outline: 0;
-				opacity: 0.75;
-				text-decoration: none;
-				background: white;
-			}
-
-				.widget.contact ul li a:before {
-					color: white;
-					font-size: 1.5em;
-					line-height: inherit;
-				}
-
-				.widget.contact ul li a:hover {
-					background: red;
-				}
-
-				.widget.contact ul li a:active {
-					background: black;
-				}
-
-				.widget.links {
-					list-style: none;
-
-				}
-
-				ul {
-					text-decoration: none;
-					list-style: none;
-				}
