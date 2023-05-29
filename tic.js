@@ -1,102 +1,92 @@
-let turn = "playesOne";
-let playerOnePoints = [];
-let playerTwoPoints = [];
 
-document.querySelectorAll("td").forEach((item) => {
-    item.addEventListener("click", function () {
-        let playerOneTotal = 0;
-        let playerTwoTotal = 0;
-        if (this.children.length == 0) {
+const statusDisplay = document.querySelector('.game--status');
 
-            if (turn == "playesOne") {
-                turn = "playesTwo"
-                this.innerHTML = `<i class="fa-solid fa-x"></i>`;
-                playerOnePoints.push(this.getAttribute("id"));
-            }
-            else {
-                turn = "playesOne"
-                this.innerHTML = `<i class="fa-regular fa-circle"></i>`;
-                playerTwoPoints.push(this.getAttribute("id"));
-            }
-        }
-        function funcFor3(player1points, playerTotal, player) {
-            player1points.forEach((item) => {
-                playerTotal += Number(item);
-            })
-            if (player == "Player 1") {
-                playerOneTotal = playerTotal;
-                if (playerTotal == 15 && playerOnePoints.length > 2) {
-                    win(player + "  Won!!!")
-                }
-                else {
+let gameActive = true;
 
-                }
-            }
-            else {
-                playerTwoTotal = playerTotal;
-                if (playerTotal == 15 && playerOnePoints.length > 2) {
-                    win(player + "  Won!!!")
-                }
-            }
-        }
+let currentPlayer = "X";
 
-        function funcFor4(playerPoints, TotalMarks, player) {
-            if (playerPoints.length > 3) {
-                for (let i = 0; i < playerPoints.length; i++) {
-                    let temp = []
-                    for (let j = 0; j < playerPoints.length; j++) {
+let gameState = ["", "", "", "", "", "", "", "", ""];
 
-                        if (i != j) {
-                            temp.push(playerPoints[j]);
-                        }
-                    }
-                    funcFor3(temp, 0, player);
-                }
-            }
-        }
+const winningMessage = () => `Player ${currentPlayer} has won!`;
+const drawMessage = () => `Game ended in a draw!`;
+const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
-        switch (playerOnePoints.length) {
+statusDisplay.innerHTML = currentPlayerTurn();
 
-            case 3:
-                funcFor3(playerOnePoints, 0, "Player 1");
-                funcFor3(playerTwoPoints, 0, "Player 2");
-                break;
-            case 4:
-                funcFor4(playerOnePoints, 0, "Player 1");
-                funcFor4(playerTwoPoints, 0, "Player 2");
-                break;
-            case 5:
-                if (playerTwoPoints.length == 4) {
-                    draw();
-                }
-                for (let i = 0; i < 5; i++) {
-                    let playerOneTotal = 0;
-                    let tempArray = [];
-                    let tempPoint = 0;
-                    for (let j = 0; j < playerOnePoints.length; j++) {
-                        if (j != i) {
-                            tempPoint += Number(playerOnePoints[j]);
-                            tempArray.push(Number(playerOnePoints[j]));
-                        }
-                    }
-                    funcFor4(tempArray, tempPoint, "player 1");
-                }
-                break;
-        }
-    })
-})
+document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
 
-function win(player) {
-    document.getElementById("winner").innerHTML = player;
-    document.getElementById("popUp").style.transform = "translateY(-200px)";
+function handleCellClick(clickedCellEvent) {   
+        const clickedCell = clickedCellEvent.target;
+        const clickedCellIndex = parseInt(
+          clickedCell.getAttribute('data-cell-index')
+        );
     
-}
-function draw() {
-    document.getElementById("winner").innerHTML = "Match Draw";
-    document.getElementById("popUp").style.transform = "translateY(-200px)";
-
-}
-function restart() {
-    location.reload();
+        if (gameState[clickedCellIndex] !== "" || !gameActive) {
+            return;
+        }
+   
+        handleCellPlayed(clickedCell, clickedCellIndex);
+        handleResultValidation();
 }
 
+function handleCellPlayed(clickedCell, clickedCellIndex) {
+    
+        gameState[clickedCellIndex] = currentPlayer;
+        clickedCell.innerHTML = currentPlayer;
+    }
+
+    const winningConditions = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+    function handleResultValidation() {
+        let roundWon = false;
+        for (let i = 0; i <= 7; i++) {
+            const winCondition = winningConditions[i];
+            let a = gameState[winCondition[0]];
+            let b = gameState[winCondition[1]];
+            let c = gameState[winCondition[2]];
+            if (a === '' || b === '' || c === '') {
+                continue;
+            }
+            if (a === b && b === c) {
+                roundWon = true;
+                break
+            }
+        }
+    if (roundWon) {
+        statusDisplay.innerHTML = winningMessage();
+        gameActive = false;
+        return;
+    }
+
+    let roundDraw = !gameState.includes("");
+    if (roundDraw) {
+        statusDisplay.innerHTML = drawMessage();
+        gameActive = false;
+        return;
+    }
+
+    handlePlayerChange();
+}
+
+function handlePlayerChange() {
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    statusDisplay.innerHTML = currentPlayerTurn();
+}
+
+function handleRestartGame() {
+    gameActive = true;
+    currentPlayer = "X";
+    gameState = ["", "", "", "", "", "", "", "", ""];
+    statusDisplay.innerHTML = currentPlayerTurn();
+    document.querySelectorAll('.cell')
+               .forEach(cell => cell.innerHTML = "");
+}    
