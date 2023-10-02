@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #8c52ff;
+    background: #8c52ff;
+    background-size: cover;
+    background-attachment: fixed;
+}
+section {
+    text-align: center;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+    background-color: #fff;
+    margin-top: 75px;
+    box-shadow: 0px 10px 36px 16px rgba(0,0,0,0.1);
+}
+.game--title {
+    padding-top: -8px;
+}
+.game--container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 150px;
+    margin: 120px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 12px;
+}
+.cell {
+    font-family: "Poppins", sans-serif;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 0 1px #333333;
+    border: 1px solid #333333;
+    cursor: pointer;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    text-align: center;
+
+}
+button {
+    margin-bottom: 20px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #8c52ff;
+    cursor: pointer;
+}
+button:hover {
+    transition: 0.25s;
+    background-color: #c1a2fe;
+}
+
+
+
+
+img {
+    height: 70px;
+    width: 75px;
+}
+
+
+.last-footer {
+    align-items: center;
+}
+
+
+.symbol {
+    align-content: center;
+}
+
+h1 {
+     font-family: fantasy;
+     font-stretch: expanded;
+     font-weight: 90;
+     color: black;
+}
+
+h3 {
+     font-family: fantasy;
+     font-stretch: expanded;
+     font-weight: 70;
+     color: black;
+}
+
+p {
+    font-size: 9px;
+}
+
+ul {
+     list-style: none;
+     text-decoration: none;
+     padding-left: 0;
+     overflow: hidden;
+     position: relative;
+     left: -4px;
+     top: 4px;
+     margin-bottom: 1.5em;
+     font-size: 9px;
+     color: skyblue;
+}
+
+.buttons {
+    border-radius: 8px;
+    border: 1px solid #8c52ff;
+    background-color: white;
+    color: #8c52ff;
+    font-size: 12px;
+}
